@@ -8,3 +8,49 @@ const descripcion_normal = "Los Pokémon de tipo normal abarcan la mayor cantida
 const descripcion_fuego = "Los Pokémon de tipo tipo fuego basan sus ataques, principalmente, en el control de este elemento; y la mayoría pueden quemar al Pokémon oponente, mientras que ellos no sufren quemaduras. Son apasionados y, algunos, de mal carácter (como el Charizard de Ash); viven en cuevas o zonas rocosas y muy áridas; y, más probable, aun cerca de volcanes activos. Sin embargo, los únicos Pokémon que aparentemente suelen andar por lugares verdes como las praderas, son Ponyta y Rapidash, pudiendo ser que estos lugares les permiten galopar sin obstáculos. También, algunos son más dóciles, como Growlithe, Vulpix y sus respectivas evoluciones."
 
 /* Comienza a escribir su código aquí */
+function tipoDePokemon(tipo){
+    let articulo = document.getElementsByTagName('article')[0];
+    let claseAnt = articulo.classList[0]
+    switch (tipo) {
+        case 'planta':
+            articulo.classList.replace(claseAnt,tipo)
+            articulo.children[0].textContent = 'Tipo Planta';
+            articulo.children[1].textContent = descripcion_planta;
+            articulo.children[2].setAttribute("src","./images/grass_type.png")
+            break;
+        case 'agua':
+            articulo.classList.replace(claseAnt,tipo);
+            articulo.children[0].textContent = 'Tipo Agua';
+            articulo.children[1].textContent = descripcion_agua;
+            articulo.children[2].setAttribute("src","./images/water_type.png")
+            break;
+        case 'electricidad':
+            articulo.classList.replace(claseAnt,tipo)
+            articulo.children[0].textContent = 'Tipo Electrico';
+            articulo.children[1].textContent = descripcion_electrico;
+            articulo.children[2].setAttribute("src","./images/electric_type.png")
+            break;
+        case 'normal':
+            articulo.classList.replace(claseAnt,tipo)
+            articulo.children[0].textContent = 'Tipo Normal';
+            articulo.children[1].textContent = descripcion_normal;
+            articulo.children[2].setAttribute("src","./images/normal_type.png")
+            break;
+        case 'fuego':
+            articulo.classList.replace(claseAnt,tipo)
+            articulo.children[0].textContent = 'Tipo Fuego';
+            articulo.children[1].textContent = descripcion_fuego;
+            articulo.children[2].setAttribute("src","./images/fire_type.png")
+            break;
+        default:
+            break;
+    }
+}
+
+
+let botones = document.getElementsByTagName("button");
+for (let i = 0; i < botones.length; i++) {
+    botones[i].addEventListener('click',()=>{
+        tipoDePokemon(botones[i].classList[0])   
+    })
+}
